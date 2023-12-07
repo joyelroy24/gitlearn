@@ -17,12 +17,12 @@ def create(request):
 
 
 def list(request):
-    data={}
-    data['key']="hello Guyss"
-    data['listkey']=[{'key1':'hello','img':'j.jpg'},{'key1':'heyy','img':'j.jpg'}]
+    
+    data=Movieinfo.objects.all()
+    print(data)
    
 
-    return render(request,'list.html',data)
+    return render(request,'list.html',{'movies':data})
 
 
 def delete(request):

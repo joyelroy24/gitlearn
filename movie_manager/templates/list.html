@@ -5,9 +5,9 @@
 
 {% load static %}
 
-{% for i in listkey %}
+{% for i in movies %}
 <img src="{% static 'images/'%}{{i.img}}">
-<h1>{{i}}</h1>
+<h1>{{i.title}}</h1>
 {% endfor %} 
 
 {% endblock content%}
