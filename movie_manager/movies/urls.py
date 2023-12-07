@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     path('',views.create,name='create'),
-    path('/list',views.list,name='list'),
-    path('/delete',views.delete,name='delete')
+    path('list',views.list,name='list'),
+    path('delete',views.delete,name='delete')
 ]

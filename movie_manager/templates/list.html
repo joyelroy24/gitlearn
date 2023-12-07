@@ -1,4 +1,15 @@
 {% extends 'blank_layout.html' %}
 {% block content %}
+<h1>List</h1>
 <h2>Override content block of blank_layout</h2>
+
+{% load static %}
+
+{% for i in listkey %}
+<img src="{% static 'images/'%}{{i.img}}">
+<h1>{{i}}</h1>
+{% endfor %} 
+
 {% endblock content%}
+
+

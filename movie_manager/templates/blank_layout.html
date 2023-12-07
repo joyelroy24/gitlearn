@@ -1,9 +1,18 @@
 
 
 {% include 'header.html' %}
+
+
+
+
+
 <h1>Movie Project</h1>
+<img src="static/images/j.jpg">
+{% load static %}
 
-
-{% block content %}
+{% static 'images' as base %}
+<img src="{% static 'images/j.jpg'%}">
+<img src="{{base}}/j.jpg">
+{% block content %} 
  <h2>Heyy</h2>
 {% endblock content %}
