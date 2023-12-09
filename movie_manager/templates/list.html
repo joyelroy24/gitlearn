@@ -4,11 +4,26 @@
 <h2>Override content block of blank_layout</h2>
 
 {% load static %}
+<table>
+    <tr>
+        <td>Sl no</td>
+        <td>title</td>
+    </tr>
 
 {% for i in movies %}
-<img src="{% static 'images/'%}{{i.img}}">
-<h1>{{i.title}}</h1>
+<tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.title}}</td>
+    {% if i.image %}
+    <td><img src="{{i.image.url}}"></td>
+    {% endif %}
+    <td><a href="{% url 'edit' i.id %}">Edit</a></td>
+    <td><a href="{% url 'delete' i.id %}">Delete</a></td>
+    <td><a href="?action=delete&id={{i.id}}">Delete</a></td>
+</tr>
+
 {% endfor %} 
+</table>
 
 {% endblock content%}
 

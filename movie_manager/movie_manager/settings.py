@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'movie_manager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'movie',
+        'USER': 'postgres',
+        'PASSWORD': 'joyel',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -122,6 +126,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     BASE_DIR/"static"
 ]
+
+import os
+MEDIA_URL='media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,"images/")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

@@ -18,8 +18,11 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('',views.create,name='create'),
     path('list',views.list,name='list'),
-    path('delete',views.delete,name='delete')
+    path('delete/<pk>',views.delete,name='delete'),
+    path('edit/<pk>',views.edit,name='edit')
 ]
+
