@@ -16,6 +16,7 @@
     <td>{{i.title}}</td>
     {% if i.image %}
     <td><img src="{{i.image.url}}"></td>
+   
     {% endif %}
     <td><a href="{% url 'edit' i.id %}">Edit</a></td>
     <td><a href="{% url 'delete' i.id %}">Delete</a></td>

@@ -8,11 +8,17 @@ from . forms import MovieForm
 def create(request):
     frm=MovieForm()
     print(request.method)
+    print(request.FILES)
     if request.POST:
         print(request.POST)
-        frm=MovieForm(request.POST,request.FILES)
-        if frm.is_valid:
-            frm.save()
+        title=request.POST.get('title')
+        img=request.FILES['image']
+        object = Movieinfo(image=img,title=title)
+        object.save()
+
+        # frm=MovieForm(request.POST,request.FILES)
+        # if frm.is_valid:
+        #     frm.save()
     else:
         frm=MovieForm()
         
