@@ -9,6 +9,7 @@ def create(request):
     frm=MovieForm()
     print(request.method)
     print(request.FILES)
+    print(request)
     if request.POST:
         print(request.POST)
         title=request.POST.get('title')
@@ -27,7 +28,16 @@ def create(request):
 
 
 def list(request):
+    print(request.session)
+    print("session")
+    count=int(request.session.get('count',0))
+    count=count+1
+    request.session['count']=count
+    print(request.COOKIES)
+    visit=int(request.COOKIES.get('visit',0))
+    visit=visit+1
     
+    print("cookie below")
     print(request.method)
     print(request.GET)
     if 'action' in request.GET:
@@ -44,8 +54,9 @@ def list(request):
             object.delete()
     data=Movieinfo.objects.all()
    
-
-    return render(request,'list.html',{'movies':data})
+    response=render(request,'list.html',{'movies':data,'visit':visit,'count':count})
+    response.set_cookie('visit',visit)
+    return response
 
 
 def delete(request,pk):
