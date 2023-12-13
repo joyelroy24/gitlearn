@@ -1,0 +1,12 @@
+{% extends 'blank_layout.html' %}
+{% block content %}
+<h1>Create</h1>
+<a href="{%url 'hahah'%}">Del</a>
+<h2>Override content block of blank_layout</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token  %}
+   <input type="text" name="uname" placeholder="user name"> 
+   <input type="text" name="pwd" placeholder="password">
+    <input type="submit" name="submit">
+</form>
+{% endblock content%} 
