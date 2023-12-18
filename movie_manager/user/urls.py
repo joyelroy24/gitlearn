@@ -21,6 +21,8 @@ from . import views
 
 urlpatterns = [
     path('signup',views.reg,name='signup'),
+    path('login',views.log,name='login'),
+    path('logout',views.logout,name='logout')
    
 ]
 

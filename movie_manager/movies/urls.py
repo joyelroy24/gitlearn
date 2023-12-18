@@ -17,12 +17,14 @@ Including another URLconf
 
 from django.urls import path
 from . import views
-
+from .views import updateview,detailview
 
 urlpatterns = [
     path('',views.create,name='create'),
     path('list',views.list,name='list'),
     path('delete/<pk>',views.delete,name='delete'),
-    path('edit/<pk>',views.edit,name='edit')
+    path('edit/<pk>',views.edit,name='edit'),
+    path('update/<pk>',updateview.as_view(),name='update_with_updateview'),
+   
 ]
 

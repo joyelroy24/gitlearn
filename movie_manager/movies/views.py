@@ -2,7 +2,11 @@ from django.shortcuts import render,redirect
 from . models import Movieinfo
 # Create your views here.
 from . forms import MovieForm
-
+from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import UpdateView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.urls import reverse_lazy
  
 
 def create(request):
@@ -26,7 +30,7 @@ def create(request):
 
     return render(request,'create.html',{'frm':frm})
 
-
+@login_required(login_url='logout')
 def list(request):
     print(request.session)
     print("session")
@@ -79,3 +83,14 @@ def edit(request,pk):
     frm=MovieForm(instance=object)
     # return redirect(create)
     return render(request,"edit.html",{'frm':frm})
+
+class updateview(UpdateView):
+    model=Movieinfo
+    template_name='update.html'
+    fields=['title']
+    success_url=reverse_lazy('list')
+
+class detailview(DetailView):
+    model=Movieinfo
+    template_name='detail.html'
+    context_object_name='movie'

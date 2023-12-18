@@ -19,6 +19,8 @@
    
     {% endif %}
     <td><a href="{% url 'edit' i.id %}">Edit</a></td>
+    <td><a href="{% url 'update_with_updateview' i.id %}">Update</a></td>
+    <td><a href="{% url 'detail_view' i.id %}">Details</a></td>
     <td><a href="{% url 'delete' i.id %}">Delete</a></td>
     <td><a href="?action=delete&id={{i.id}}">Delete</a></td>
 </tr>
